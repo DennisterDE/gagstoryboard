@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="dark"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="CommentTableViewCell" selectionStyle="default" indentationWidth="10" rowHeight="120" id="KGk-i7-Jjw" customClass="CommentTableViewCell" customModule="gagstoryboard" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="427" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="427" height="120"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="commenterName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Wa-xf-Whd">
+                        <rect key="frame" x="4" y="0.0" width="132" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="LRv-m4-8yr"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ndsandndjskandjksandjksandjksakdjnasndjksandkjasdnajkdasnkjdnasjkdnsajkndsakjhjkhjkhjkhjkhjkhkjhkhjkhjk" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="ruB-wb-2cu">
+                        <rect key="frame" x="8" y="19.999999999999996" width="419" height="34.666666666666657"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleAspectFit" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vak-24-x8u">
+                        <rect key="frame" x="6" y="84.666666666666671" width="140.66666666666666" height="34.333333333333329"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gfa-9X-AwC">
+                                <rect key="frame" x="0.0" y="0.0" width="45.666666666666664" height="34.333333333333336"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrow.up" catalog="system"/>
+                                <connections>
+                                    <action selector="upVoteButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ls0-Ii-XUx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2q6-2g-fqA">
+                                <rect key="frame" x="47" y="0.0" width="45.666666666666657" height="34.333333333333336"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrow.down" catalog="system"/>
+                                <connections>
+                                    <action selector="downVoteButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Uyc-zs-zCF"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nWF-7Y-PS1">
+                                <rect key="frame" x="92.666666666666671" y="5.3333333333333286" width="48.000000000000014" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="34.329999999999998" id="qj5-p6-jVq"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="ruB-wb-2cu" secondAttribute="trailing" id="31C-Pr-Z0N"/>
+                    <constraint firstItem="ruB-wb-2cu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="B0v-Cb-TJJ"/>
+                    <constraint firstItem="4Wa-xf-Whd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="U76-MV-8kO"/>
+                    <constraint firstItem="ruB-wb-2cu" firstAttribute="top" secondItem="4Wa-xf-Whd" secondAttribute="bottom" id="ahX-IM-fwP"/>
+                    <constraint firstItem="4Wa-xf-Whd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="4" id="cW4-uR-UG4"/>
+                    <constraint firstAttribute="bottom" secondItem="vak-24-x8u" secondAttribute="bottom" constant="1" id="dsC-VR-dAX"/>
+                    <constraint firstItem="vak-24-x8u" firstAttribute="top" secondItem="ruB-wb-2cu" secondAttribute="bottom" constant="30" id="fdu-ER-yS3"/>
+                    <constraint firstItem="vak-24-x8u" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="6" id="hC1-1T-GMg"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="commentBody" destination="ruB-wb-2cu" id="i5v-QE-yqR"/>
+                <outlet property="commentUpvotes" destination="nWF-7Y-PS1" id="5eg-KI-oSk"/>
+                <outlet property="commenterName" destination="4Wa-xf-Whd" id="g2q-Hq-xPQ"/>
+                <outlet property="downVoteButton" destination="2q6-2g-fqA" id="Ead-tX-Aml"/>
+                <outlet property="upVoteButton" destination="Gfa-9X-AwC" id="pm9-Ap-laU"/>
+            </connections>
+            <point key="canvasLocation" x="414.50381679389312" y="-21.126760563380284"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="arrow.down" catalog="system" width="118" height="128"/>
+        <image name="arrow.up" catalog="system" width="118" height="128"/>
+    </resources>
+</document>
