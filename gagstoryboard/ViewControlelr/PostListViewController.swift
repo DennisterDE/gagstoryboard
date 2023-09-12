@@ -34,15 +34,15 @@ class PostListViewController:UIViewController,UITableViewDelegate,UITableViewDat
         
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return getNumberOfCells()
     }
-        
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+    internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         goToDetailsPageFor(indexPath: indexPath)
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let customCell = tableView.dequeueReusableCell(withIdentifier:PostTableViewCell.identifier,for: indexPath) as! PostTableViewCell
         switch topSegmentedControl.selectedSegmentIndex {
         case 0:
@@ -55,13 +55,16 @@ class PostListViewController:UIViewController,UITableViewDelegate,UITableViewDat
             return createCustomCell(post: self.vm.posts.filter {$0.category == .hot}[indexPath.row], cell: customCell)
         }
     }
-    
-    func createCustomCell (post : PostModel, cell : PostTableViewCell) -> PostTableViewCell{
+}
+
+    extension PostListViewController{
+        
+    private func createCustomCell (post : PostModel, cell : PostTableViewCell) -> PostTableViewCell{
         cell.configure(title: post.Title, imageString: post.imageLink, postPoster: post.op, upVoteCount: post.upVotes, downVoteCount: post.downVotes)
         return cell
     }
     
-    func goToDetailsPageFor(indexPath : IndexPath){
+    private func goToDetailsPageFor(indexPath : IndexPath){
         if let vc = storyboard?.instantiateViewController(withIdentifier: "PostDetailStoryboard") as? PostDetailViewController{
             switch topSegmentedControl.selectedSegmentIndex {
             case 0:
@@ -78,7 +81,7 @@ class PostListViewController:UIViewController,UITableViewDelegate,UITableViewDat
             }
         }
     }
-    func getNumberOfCells()->Int{
+   private func getNumberOfCells()->Int{
         switch topSegmentedControl.selectedSegmentIndex {
         case 0:
             return getHotPosts().count
@@ -91,15 +94,15 @@ class PostListViewController:UIViewController,UITableViewDelegate,UITableViewDat
         }
     }
     
-    func getHotPosts() -> [PostModel]{
+    private func getHotPosts() -> [PostModel]{
         return vm.posts.filter {$0.category == .hot}
     }
     
-    func getTrendingPosts() -> [PostModel]{
+    private func getTrendingPosts() -> [PostModel]{
         return vm.posts.filter {$0.category == .trending}
     }
     
-    func getFreshPosts() -> [PostModel]{
+    private func getFreshPosts() -> [PostModel]{
         return vm.posts.filter {$0.category == .fresh}
     }
     

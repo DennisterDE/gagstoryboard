@@ -9,8 +9,6 @@ import UIKit
 
 class PostDetailViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
-    
-    
     @IBAction func upArrowPressed(_ sender: UIButton) {
         switch voteStatus
         {
@@ -37,6 +35,7 @@ class PostDetailViewController: UIViewController,UITableViewDataSource,UITableVi
             return
         }
     }
+    
     @IBAction func downArrowPressed(_ sender: UIButton) {
         switch voteStatus
         {
@@ -54,7 +53,6 @@ class PostDetailViewController: UIViewController,UITableViewDataSource,UITableVi
             upVoteCount.text=String(Int(upVoteCount.text!)!-2)
             voteStatus = -1
             upArrow.tintColor=UIColor.systemBlue
-            
         default:
             return
         }
@@ -69,35 +67,36 @@ class PostDetailViewController: UIViewController,UITableViewDataSource,UITableVi
     @IBOutlet var posterName: UILabel!
     @IBOutlet var postImageView: UIImageView!
     @IBOutlet var commentTableView: UITableView!
-    var post = mockPostModel.posts[0]
+    var post = mockPostModel.posts[0] //placeholder
     var voteStatus = 0
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         commentTableView.register(CommentTableViewCell.nib(), forCellReuseIdentifier: "CommentTableViewCell")
         commentTableView.dataSource=self
         commentTableView.delegate=self
-        
-        op.text=post.Title
-        posterName.text=post.op
-        postImageView.image=UIImage(named: post.imageLink)
-        upVoteCount.text=String(Int(post.upVotes-post.downVotes))
+        setupView()
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return post.comments.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let customCell = tableView.dequeueReusableCell(withIdentifier:"CommentTableViewCell",for: indexPath) as! CommentTableViewCell
         
         return createCustomCell(comment: self.post.comments[indexPath.row], cell: customCell)
     }
     
-    func createCustomCell (comment : Comment, cell : CommentTableViewCell) -> CommentTableViewCell{
+    private func createCustomCell (comment : Comment, cell : CommentTableViewCell) -> CommentTableViewCell{
         cell.configure(commenterName:comment.poster , commentBody: comment.body, upVoteCount: comment.upVotes, downVoteCount: comment.downVotes)
         return cell
     }
-    
+    private func setupView()
+    {
+        op.text=post.Title
+        posterName.text=post.op
+        postImageView.image=UIImage(named: post.imageLink)
+        upVoteCount.text=String(Int(post.upVotes-post.downVotes))
+    }
 }
