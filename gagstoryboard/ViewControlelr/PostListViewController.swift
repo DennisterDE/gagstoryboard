@@ -18,7 +18,6 @@ class PostListViewController:UIViewController,UITableViewDelegate,UITableViewDat
         default:
             break
         }
-        
     }
     @IBOutlet var topSegmentedControl: UISegmentedControl!
     @IBOutlet var postTableView: UITableView!
@@ -31,7 +30,6 @@ class PostListViewController:UIViewController,UITableViewDelegate,UITableViewDat
         postTableView.register(PostTableViewCell.nib(), forCellReuseIdentifier: PostTableViewCell.identifier)
         postTableView.dataSource = self
         postTableView.delegate = self
-        
     }
     
     internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,64 +44,68 @@ class PostListViewController:UIViewController,UITableViewDelegate,UITableViewDat
         let customCell = tableView.dequeueReusableCell(withIdentifier:PostTableViewCell.identifier,for: indexPath) as! PostTableViewCell
         switch topSegmentedControl.selectedSegmentIndex {
         case 0:
-            return createCustomCell(post: getHotPosts()[indexPath.row], cell: customCell)
+            return createCustomCell(post: getPosts(postType: .hot)[indexPath.row], cell: customCell)
         case 1:
-            return createCustomCell(post: getTrendingPosts()[indexPath.row], cell: customCell)
+            return createCustomCell(post: getPosts(postType: .trending)[indexPath.row], cell: customCell)
         case 2:
-            return createCustomCell(post: getFreshPosts()[indexPath.row], cell: customCell)
+            return createCustomCell(post: getPosts(postType: .fresh)[indexPath.row], cell: customCell)
         default:
             return createCustomCell(post: self.vm.posts.filter {$0.category == .hot}[indexPath.row], cell: customCell)
         }
     }
 }
 
-    extension PostListViewController{
-        
-    private func createCustomCell (post : PostModel, cell : PostTableViewCell) -> PostTableViewCell{
+extension PostListViewController {
+    
+    private func createCustomCell(post : PostModel, cell : PostTableViewCell) -> PostTableViewCell {
         cell.configure(title: post.Title, imageString: post.imageLink, postPoster: post.op, upVoteCount: post.upVotes, downVoteCount: post.downVotes)
         return cell
     }
     
-    private func goToDetailsPageFor(indexPath : IndexPath){
+    private func goToDetailsPageFor(indexPath : IndexPath) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "PostDetailStoryboard") as? PostDetailViewController{
             switch topSegmentedControl.selectedSegmentIndex {
             case 0:
-                vc.post = getHotPosts() [indexPath.row]
+                vc.post = getPosts(postType: .fresh) [indexPath.row]
                 self.navigationController?.pushViewController(vc, animated: true)
             case 1:
-                vc.post = getTrendingPosts() [indexPath.row]
+                vc.post = getPosts(postType: .trending) [indexPath.row]
                 self.navigationController?.pushViewController(vc, animated: true)
             case 2:
-                vc.post = getFreshPosts() [indexPath.row]
+                vc.post = getPosts(postType: .fresh) [indexPath.row]
                 self.navigationController?.pushViewController(vc, animated: true)
             default:
                 break
             }
         }
     }
-   private func getNumberOfCells()->Int{
+    private func getNumberOfCells()->Int {
         switch topSegmentedControl.selectedSegmentIndex {
         case 0:
-            return getHotPosts().count
+            return getPosts(postType:.hot).count
         case 1:
-            return getTrendingPosts().count
+            return getPosts(postType: .trending).count
         case 2:
-            return getFreshPosts().count
+            return getPosts(postType: .fresh).count
         default:
             return 0
         }
     }
     
-    private func getHotPosts() -> [PostModel]{
-        return vm.posts.filter {$0.category == .hot}
-    }
-    
-    private func getTrendingPosts() -> [PostModel]{
-        return vm.posts.filter {$0.category == .trending}
-    }
-    
-    private func getFreshPosts() -> [PostModel]{
-        return vm.posts.filter {$0.category == .fresh}
+    private func getPosts(postType : PostType) -> [PostModel] {
+        switch postType {
+        case .hot:
+            return vm.posts.filter {$0.category == .hot}
+        case .trending:
+            return vm.posts.filter {$0.category == .trending}
+        case .fresh:
+            return vm.posts.filter {$0.category == .fresh}
+        default:
+            break
+        }
+        
+        
+        
     }
     
 }

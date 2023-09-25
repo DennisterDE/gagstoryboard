@@ -88,12 +88,11 @@ class PostDetailViewController: UIViewController,UITableViewDataSource,UITableVi
         return createCustomCell(comment: self.post.comments[indexPath.row], cell: customCell)
     }
     
-    private func createCustomCell (comment : Comment, cell : CommentTableViewCell) -> CommentTableViewCell{
+    private func createCustomCell(comment : Comment, cell : CommentTableViewCell) -> CommentTableViewCell{
         cell.configure(commenterName:comment.poster , commentBody: comment.body, upVoteCount: comment.upVotes, downVoteCount: comment.downVotes)
         return cell
     }
-    private func setupView()
-    {
+    private func setupView() {
         op.text=post.Title
         posterName.text=post.op
         postImageView.image=UIImage(named: post.imageLink)

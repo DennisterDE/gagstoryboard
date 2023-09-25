@@ -8,8 +8,7 @@
 import UIKit
 
 class PostTableViewCell: UITableViewCell {
-
-
+    
     @IBOutlet var postImageView : UIImageView!
     @IBOutlet var postTitle : UILabel!
     @IBOutlet var postPoster: UILabel!
@@ -46,7 +45,7 @@ class PostTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func upArrowPressed(sender : UIButton){
+    private func upArrowPressed(sender : UIButton){
         switch voteStatus{
         case 0:
             sender.tintColor=UIColor.red
@@ -67,7 +66,7 @@ class PostTableViewCell: UITableViewCell {
         }
     }
     
-    func downArrowPressed(sender : UIButton){
+   private func downArrowPressed(sender : UIButton){
         switch voteStatus{
         case -1:
             sender.tintColor=UIColor.systemBlue

@@ -25,6 +25,16 @@
 		496920F12A9E28B700ECA06F /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 496920EF2A9E28B700ECA06F /* CommentTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		49D435842ABB103A00C79A42 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4968776F2A9CA4C300767807 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 496877762A9CA4C300767807;
+			remoteInfo = gagstoryboard;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		006D96D522CB7A3A6AF011C3 /* Pods-gagstoryboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gagstoryboard.release.xcconfig"; path = "Target Support Files/Pods-gagstoryboard/Pods-gagstoryboard.release.xcconfig"; sourceTree = "<group>"; };
 		496877772A9CA4C300767807 /* gagstoryboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gagstoryboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +54,7 @@
 		496920E82A9E0A3E00ECA06F /* PostDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewModel.swift; sourceTree = "<group>"; };
 		496920EE2A9E28B700ECA06F /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		496920EF2A9E28B700ECA06F /* CommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
+		49D435802ABB103A00C79A42 /* gagstoryboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gagstoryboardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		550CB6218DDD78ED6AB28337 /* Pods-gagstoryboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gagstoryboard.debug.xcconfig"; path = "Target Support Files/Pods-gagstoryboard/Pods-gagstoryboard.debug.xcconfig"; sourceTree = "<group>"; };
 		CBE76F72EB3DB8DC964B9B3F /* Pods_gagstoryboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gagstoryboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -54,6 +65,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				025AE40BFAF552C335EAB788 /* Pods_gagstoryboard.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49D4357D2ABB103A00C79A42 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				496877772A9CA4C300767807 /* gagstoryboard.app */,
+				49D435802ABB103A00C79A42 /* gagstoryboardTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -125,12 +144,28 @@
 		4968779C2A9CA97600767807 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4973C6422AB1B2DA00D18DAB /* Comment */,
+				4973C6412AB1B2CA00D18DAB /* Post */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4973C6412AB1B2CA00D18DAB /* Post */ = {
+			isa = PBXGroup;
+			children = (
 				4968779F2A9CAAF900767807 /* PostTableViewCell.swift */,
 				496877A02A9CAAF900767807 /* PostTableViewCell.xib */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		4973C6422AB1B2DA00D18DAB /* Comment */ = {
+			isa = PBXGroup;
+			children = (
 				496920EE2A9E28B700ECA06F /* CommentTableViewCell.swift */,
 				496920EF2A9E28B700ECA06F /* CommentTableViewCell.xib */,
 			);
-			path = View;
+			path = Comment;
 			sourceTree = "<group>";
 		};
 		C6B1740921BF0ED94CE80F83 /* Frameworks */ = {
@@ -172,6 +207,24 @@
 			productReference = 496877772A9CA4C300767807 /* gagstoryboard.app */;
 			productType = "com.apple.product-type.application";
 		};
+		49D4357F2ABB103A00C79A42 /* gagstoryboardTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49D435862ABB103A00C79A42 /* Build configuration list for PBXNativeTarget "gagstoryboardTests" */;
+			buildPhases = (
+				49D4357C2ABB103A00C79A42 /* Sources */,
+				49D4357D2ABB103A00C79A42 /* Frameworks */,
+				49D4357E2ABB103A00C79A42 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				49D435852ABB103A00C79A42 /* PBXTargetDependency */,
+			);
+			name = gagstoryboardTests;
+			productName = gagstoryboardTests;
+			productReference = 49D435802ABB103A00C79A42 /* gagstoryboardTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -184,6 +237,10 @@
 				TargetAttributes = {
 					496877762A9CA4C300767807 = {
 						CreatedOnToolsVersion = 14.3.1;
+					};
+					49D4357F2ABB103A00C79A42 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 496877762A9CA4C300767807;
 					};
 				};
 			};
@@ -201,6 +258,7 @@
 			projectRoot = "";
 			targets = (
 				496877762A9CA4C300767807 /* gagstoryboard */,
+				49D4357F2ABB103A00C79A42 /* gagstoryboardTests */,
 			);
 		};
 /* End PBXProject section */
@@ -215,6 +273,13 @@
 				496877822A9CA4C300767807 /* Main.storyboard in Resources */,
 				496877A22A9CAAF900767807 /* PostTableViewCell.xib in Resources */,
 				496920F12A9E28B700ECA06F /* CommentTableViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49D4357E2ABB103A00C79A42 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +345,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		49D4357C2ABB103A00C79A42 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		49D435852ABB103A00C79A42 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 496877762A9CA4C300767807 /* gagstoryboard */;
+			targetProxy = 49D435842ABB103A00C79A42 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		496877802A9CA4C300767807 /* Main.storyboard */ = {
@@ -472,6 +552,40 @@
 			};
 			name = Release;
 		};
+		49D435872ABB103A00C79A42 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = denis.gagstoryboardTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/gagstoryboard.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/gagstoryboard";
+			};
+			name = Debug;
+		};
+		49D435882ABB103A00C79A42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = denis.gagstoryboardTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/gagstoryboard.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/gagstoryboard";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -489,6 +603,15 @@
 			buildConfigurations = (
 				4968778C2A9CA4C500767807 /* Debug */,
 				4968778D2A9CA4C500767807 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49D435862ABB103A00C79A42 /* Build configuration list for PBXNativeTarget "gagstoryboardTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49D435872ABB103A00C79A42 /* Debug */,
+				49D435882ABB103A00C79A42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
